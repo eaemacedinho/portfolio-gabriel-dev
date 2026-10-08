@@ -8,6 +8,7 @@ export type Project = {
   features: string[];
   stack: string[];
   liveUrl?: string;
+  appStoreUrl?: string;
   visual: "mobile" | "dashboard" | "website" | "grid" | "form";
   featured?: boolean;
 };
@@ -31,6 +32,7 @@ export const projects: Project[] = [
     ],
     stack: ["React", "TypeScript", "Supabase", "Capacitor", "iOS"],
     liveUrl: "https://almasparacristo.com.br",
+    appStoreUrl: "https://apps.apple.com/br/app/almas-para-cristo/id6814705411",
     visual: "mobile",
     featured: true
   },
@@ -72,6 +74,7 @@ export const projects: Project[] = [
       "Fluxo pensado para social media"
     ],
     stack: ["React", "TypeScript", "UI/UX", "Responsive"],
+    liveUrl: "https://bpreview.meuinflu.com.br/",
     visual: "grid",
     featured: true
   },
@@ -99,7 +102,7 @@ export const projects: Project[] = [
   {
     id: "solar-express-site",
     eyebrow: "05 · Site comercial",
-    title: "Solar Express — Site",
+    title: "Solar Express Site",
     description:
       "Presença digital comercial pensada para explicar serviços, gerar confiança e transformar visitas em oportunidades.",
     problem:
@@ -113,12 +116,13 @@ export const projects: Project[] = [
       "Design responsivo"
     ],
     stack: ["React", "TypeScript", "Landing Page", "SEO"],
+    liveUrl: "https://solarexpress.com.br/",
     visual: "website"
   },
   {
     id: "solar-express-crm",
     eyebrow: "06 · Sistema interno",
-    title: "Solar Express — CRM",
+    title: "Solar Express CRM",
     description:
       "Sistema interno para centralizar o acompanhamento comercial e reduzir informação espalhada entre diferentes canais.",
     problem:
@@ -132,16 +136,17 @@ export const projects: Project[] = [
       "Acompanhamento por etapas"
     ],
     stack: ["React", "TypeScript", "Database", "CRM"],
+    liveUrl: "https://crm100.solarexpress.com.br/",
     visual: "dashboard"
   },
   {
     id: "meu-influ-crm",
     eyebrow: "07 · CRM + automação",
-    title: "Meu Influ — CRM interno",
+    title: "Meu Influ CRM",
     description:
       "CRM interno da agência para acompanhar contatos, negociações e conversas com mais contexto operacional.",
     problem:
-      "Uma agência lida com muitos criadores, marcas, campanhas e conversas simultâneas — informação dispersa vira gargalo rapidamente.",
+      "Uma agência lida com muitos criadores, marcas, campanhas e conversas simultâneas. Informação dispersa vira gargalo rapidamente.",
     solution:
       "A centralização do relacionamento permite acompanhar contatos e evoluções, incluindo integrações com fluxos de WhatsApp.",
     features: [
@@ -156,7 +161,7 @@ export const projects: Project[] = [
   {
     id: "camilla-rocha-form",
     eyebrow: "08 · Formulário + dados",
-    title: "Camilla Rocha — Formulário inteligente",
+    title: "Camilla Rocha",
     description:
       "Fluxo de captação criado para organizar informações de leads de forma simples para quem preenche e útil para quem atende.",
     problem:
@@ -170,6 +175,7 @@ export const projects: Project[] = [
       "Dados prontos para atendimento"
     ],
     stack: ["React", "Forms", "Google Sheets", "Automation"],
+    liveUrl: "https://camilla.meuinflu.com.br/",
     visual: "form"
   }
 ];
