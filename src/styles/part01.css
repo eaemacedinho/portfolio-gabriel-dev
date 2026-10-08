@@ -231,12 +231,7 @@ img {
   letter-spacing: 0.08em;
 }
 
-.eyebrow::before {
-  content: "";
-  width: 16px;
-  height: 1px;
-  background: currentColor;
-}
+
 
 .hero h1 {
   margin: 18px 0 22px;
