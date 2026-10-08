@@ -226,6 +226,12 @@ export default function App() {
                       <div key={feature}><span>✓</span>{feature}</div>
                     ))}
                   </div>
+
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-link project-card__link">
+                      Abrir projeto <ArrowIcon />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
