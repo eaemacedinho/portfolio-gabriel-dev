@@ -1,0 +1,44 @@
+name: Capture real project visuals
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/capture-projects.mjs"
+      - ".github/workflows/capture-project-visuals.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Capture published projects
+        run: node scripts/capture-projects.mjs
+
+      - name: Commit real screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/projects/live
+          if git diff --cached --quiet; then
+            echo "No screenshot changes"
+          else
+            git commit -m "assets: refresh real project screenshots"
+            git push
+          fi
