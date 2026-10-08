@@ -3,7 +3,7 @@ import { ContactModal } from "./components/ContactModal";
 import { ProjectVisual } from "./components/ProjectVisual";
 import { projects } from "./data/projects";
 
-const heroPhoto = "https://avatars.githubusercontent.com/u/261530882?v=4";
+const heroPhoto = "/projects/gabriel-profile.webp";
 
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Gabriel Macedo — início">
+        <a className="brand" href="#top" aria-label="Gabriel Macedo, início">
           <span className="brand-mark">GM</span>
           <span>Gabriel Macedo</span>
         </a>
@@ -55,7 +55,7 @@ export default function App() {
         <section className="hero section-shell" id="sobre">
           <div className="hero-photo-wrap">
             <div className="hero-photo-card">
-              <img src={heroPhoto} alt="Foto de Gabriel Macedo" className="hero-photo" />
+              <img src={heroPhoto} alt="Gabriel Macedo sorrindo" className="hero-photo" fetchPriority="high" />
               <div className="hero-photo-caption">
                 <span className="status-dot" />
                 Disponível para novos projetos
@@ -71,7 +71,7 @@ export default function App() {
             <span className="eyebrow">Desenvolvedor de produtos digitais</span>
             <h1>Olá, eu sou o Gabriel!</h1>
             <p className="hero-lead">
-              Eu transformo ideias em sites, aplicativos e sistemas que resolvem problemas reais — da experiência visual à arquitetura e integração dos dados.
+              Eu transformo ideias em sites, aplicativos e sistemas pensados para resolver problemas reais. Cuido da experiência visual, da arquitetura e das integrações que fazem o produto funcionar.
             </p>
 
             <div className="hero-story">
@@ -79,7 +79,7 @@ export default function App() {
                 Minha relação com tecnologia começou cedo, primeiro desmontando e consertando computadores. Depois vieram Portugol, Python e o contato com ambientes de desenvolvimento como o VS Code.
               </p>
               <p>
-                A formação técnica em Eletromecânica e a Engenharia de Controle e Automação ampliaram essa base com C, C++, Ladder, Diagramas de Blocos e lógica de sistemas. Hoje concentro meu trabalho em produtos digitais com React e TypeScript, além de aprofundar o desenvolvimento mobile — com foco especial no ecossistema iOS e experiências também em Android.
+                A formação técnica em Eletromecânica e a Engenharia de Controle e Automação ampliaram essa base com C, C++, Ladder, Diagramas de Blocos e lógica de sistemas. Hoje concentro meu trabalho em produtos digitais com React e TypeScript, além de aprofundar o desenvolvimento mobile, com foco especial no ecossistema iOS e experiências também em Android.
               </p>
             </div>
 
@@ -175,11 +175,18 @@ export default function App() {
                     {project.stack.map((item) => <span key={item}>{item}</span>)}
                   </div>
 
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-link">
-                      Ver projeto <ArrowIcon />
-                    </a>
-                  )}
+                  <div className="case-links">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noreferrer" className="text-link">
+                        Ver projeto <ArrowIcon />
+                      </a>
+                    )}
+                    {project.appStoreUrl && (
+                      <a href={project.appStoreUrl} target="_blank" rel="noreferrer" className="text-link text-link--store">
+                        Ver na App Store <ArrowIcon />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {index < featured.length - 1 && <div className="case-divider" />}
