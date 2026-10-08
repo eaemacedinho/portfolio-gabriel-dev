@@ -40,5 +40,6 @@ jobs:
             echo "No screenshot changes"
           else
             git commit -m "assets: refresh real project screenshots"
+            git pull --rebase origin main
             git push
           fi
