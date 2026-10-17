@@ -113,10 +113,10 @@ export function AlmasGallery() {
           <a className="ag-appstore" target="_blank" rel="noreferrer" href="https://apps.apple.com/br/app/almas-para-cristo/id6814705411">Ver na App Store <span aria-hidden="true">↗</span></a>
         </div>
         <div className={"ag-device-orbit ag-device-orbit--" + screen.theme}>
-          <div className="ag-device" onClick={() => setExpanded(true)}>
+          <button type="button" className="ag-device" aria-label={"Ampliar tela de " + screen.title} onClick={() => setExpanded(true)}>
             <div className="ag-device__notch" />
             {selectedImage}
-          </div>
+          </button>
           <button className="ag-zoom" onClick={() => setExpanded(true)} type="button">Ampliar tela <span aria-hidden="true">↗</span></button>
         </div>
         <div className="ag-stage__edge" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span></div>
