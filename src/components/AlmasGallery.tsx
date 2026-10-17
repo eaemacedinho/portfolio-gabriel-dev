@@ -3,11 +3,11 @@ import { almasShowcase } from "../assets/almasShowcase";
 
 type Screen = { id: string; title: string; eyebrow: string; description: string; path: string; theme: "light" | "dark" | "blue" };
 const screens: Screen[] = [
-  { id:"inicio", title:"Início", eyebrow:"Sua fé no dia a dia", description:"Versículo do dia, oração, formação e acesso rápido aos recursos do aplicativo.", path:"/projects/almas/inicio.jpeg", theme:"dark" },
-  { id:"jogos", title:"Jogos Bíblicos", eyebrow:"Arena da Fé", description:"Treino individual e desafios entre amigos com partidas de 1x1, 2x2 e 4x4.", path:"/projects/almas/jogos.jpeg", theme:"blue" },
-  { id:"sala", title:"Sala 1x1", eyebrow:"Desafie um amigo", description:"Criação de sala, convite e preparação para uma batalha de conhecimento bíblico.", path:"/projects/almas/sala.jpeg", theme:"blue" },
-  { id:"missal", title:"Missal do Dia", eyebrow:"A Palavra de perto", description:"Leituras e salmos organizados para acompanhar a Santa Missa pelo celular.", path:"/projects/almas/missal.jpeg", theme:"dark" },
-  { id:"eventos", title:"Eventos", eyebrow:"Comunidade conectada", description:"Agenda da paróquia e encontros da juventude com datas e detalhes.", path:"/projects/almas/eventos.jpeg", theme:"dark" }
+  { id:"inicio", title:"Início", eyebrow:"Sua fé no dia a dia", description:"Versículo do dia, oração, formação e acesso rápido aos recursos do aplicativo.", path:"/projects/almas/inicio.jpg", theme:"dark" },
+  { id:"jogos", title:"Jogos Bíblicos", eyebrow:"Arena da Fé", description:"Treino individual e desafios entre amigos com partidas de 1x1, 2x2 e 4x4.", path:"/projects/almas/jogos.jpg", theme:"blue" },
+  { id:"sala", title:"Sala 1x1", eyebrow:"Desafie um amigo", description:"Criação de sala, convite e preparação para uma batalha de conhecimento bíblico.", path:"/projects/almas/sala.webp", theme:"blue" },
+  { id:"missal", title:"Missal do Dia", eyebrow:"A Palavra de perto", description:"Leituras e salmos organizados para acompanhar a Santa Missa pelo celular.", path:"/projects/almas/missal.jpg", theme:"dark" },
+  { id:"eventos", title:"Eventos", eyebrow:"Comunidade conectada", description:"Agenda da paróquia e encontros da juventude com datas e detalhes.", path:"/projects/almas/eventos.webp", theme:"dark" }
 ];
 
 function Arrow({ direction }: { direction: "prev" | "next" }) {
