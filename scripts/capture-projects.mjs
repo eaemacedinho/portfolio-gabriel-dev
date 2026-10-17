@@ -29,7 +29,24 @@ async function capture(name, url, viewport, suffix) {
     console.log(`Capturing ${name} ${suffix}: ${url}`);
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
     await page.waitForTimeout(4500);
-    await page.evaluate(() => window.scrollTo(0, 0));
+    if (suffix === "mobile") {
+      const candidates = page.locator("main section, main article, [id*=features], [id*=servicos], [id*=recursos], h2");
+      const count = await candidates.count();
+      let target = null;
+      for (let i = 0; i < Math.min(count, 30); i++) {
+        const el = candidates.nth(i);
+        const box = await el.boundingBox();
+        const text = ((await el.innerText().catch(() => "")) || "").toLowerCase();
+        if (box && box.y > 550 && box.y < 2500 && box.height > 180 && (text.length > 75 || text.includes("recursos") || text.includes("funcionalidade"))) {
+          target = Math.max(0, Math.round(box.y - 30));
+          break;
+        }
+      }
+      await page.evaluate((y) => window.scrollTo({ top: y, behavior: "instant" }), target ?? 600);
+      await page.waitForTimeout(1200);
+    } else {
+      await page.evaluate(() => window.scrollTo(0, 0));
+    }
     await page.waitForTimeout(500);
 
     await page.screenshot({

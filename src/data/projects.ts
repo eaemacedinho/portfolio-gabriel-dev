@@ -161,7 +161,7 @@ export const projects: Project[] = [
   {
     id: "camilla-rocha-form",
     eyebrow: "08 · Formulário + dados",
-    title: "Camilla Rocha",
+    title: "Médica Especialista",
     description:
       "Fluxo de captação criado para organizar informações de leads de forma simples para quem preenche e útil para quem atende.",
     problem:

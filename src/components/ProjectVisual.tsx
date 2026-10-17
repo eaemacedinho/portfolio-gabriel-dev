@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Project } from "../data/projects";
-import { almasShowcase } from "../assets/almasShowcase";
+import { AlmasGallery } from "./AlmasGallery";
 
 type Props = {
   project: Project;
@@ -70,7 +70,7 @@ function Screenshot({
   if (!loaded) {
     return (
       <div className={`${className} screenshot-fallback`}>
-        <span>Visual real sendo atualizado</span>
+        <span>Imagem original em atualização</span>
       </div>
     );
   }
@@ -87,25 +87,7 @@ function Screenshot({
 }
 
 export function ProjectVisual({ project }: Props) {
-  if (project.id === "almas-para-cristo") {
-    return (
-      <div className="project-visual-real project-visual-real--almas">
-        <div className="real-visual-meta">
-          <span>iOS</span>
-          <span>App Store</span>
-          <span>Missal</span>
-          <span>Eventos</span>
-          <span>Arena da Fé</span>
-        </div>
-        <img
-          src={almasShowcase}
-          alt="Telas reais do Almas para Cristo no iPhone, incluindo início, jogos bíblicos, missal e eventos"
-          className="almas-showcase-image"
-          loading="eager"
-        />
-      </div>
-    );
-  }
+  if (project.id === "almas-para-cristo") return <AlmasGallery />;
 
   if (project.id === "meu-influ-crm") {
     return (

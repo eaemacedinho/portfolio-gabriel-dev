@@ -2,9 +2,22 @@ import { useEffect, useMemo, useState } from "react";
 import { ContactModal } from "./components/ContactModal";
 import { ProjectVisual } from "./components/ProjectVisual";
 import { projects } from "./data/projects";
+import { PanelsTopLeft, Smartphone, LayoutDashboard, Workflow, Mail, CalendarDays, Database, MessagesSquare, BookOpen, UsersRound, Sparkles } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const heroPhoto = "/projects/gabriel-profile.webp";
 
+function FeatureIcon({ label }: { label: string }) {
+  const lower = label.toLocaleLowerCase("pt-BR");
+  if (lower.includes("whatsapp")) return <span className="feature-branded-icon feature-branded-icon--whatsapp"><FaWhatsapp aria-hidden="true" /></span>;
+  if (lower.includes("e-mail") || lower.includes("email")) return <span className="feature-branded-icon"><Mail aria-hidden="true" /></span>;
+  if (lower.includes("agend") || lower.includes("evento")) return <span className="feature-branded-icon"><CalendarDays aria-hidden="true" /></span>;
+  if (lower.includes("banco") || lower.includes("dados") || lower.includes("planilha")) return <span className="feature-branded-icon"><Database aria-hidden="true" /></span>;
+  if (lower.includes("bíblic") || lower.includes("conteúdo católico")) return <span className="feature-branded-icon"><BookOpen aria-hidden="true" /></span>;
+  if (lower.includes("contato") || lower.includes("cliente")) return <span className="feature-branded-icon"><UsersRound aria-hidden="true" /></span>;
+  if (lower.includes("mensage") || lower.includes("conversa")) return <span className="feature-branded-icon"><MessagesSquare aria-hidden="true" /></span>;
+  return <span className="feature-branded-icon"><Sparkles aria-hidden="true" /></span>;
+}
 function ArrowIcon() {
   return <span aria-hidden="true">↗</span>;
 }
@@ -97,26 +110,26 @@ export default function App() {
         </section>
 
         <section className="capabilities section-shell" aria-label="Áreas de atuação">
-          <div className="capability">
-            <span>01</span>
-            <strong>Sites que convertem</strong>
-            <p>Landing pages e sites institucionais com foco em clareza, posicionamento e contato.</p>
+          <div className="capabilities__heading">
+            <div>
+              <span>COM O QUE EU POSSO AJUDAR</span>
+              <strong>Uma boa ideia merece<br/>uma solução à altura.</strong>
+            </div>
+            <p>Do primeiro conceito à entrega final, tecnologia feita para pessoas e negócios reais.</p>
           </div>
-          <div className="capability">
-            <span>02</span>
-            <strong>Apps e produtos</strong>
-            <p>Experiências web e mobile desenhadas para uso real, não apenas para apresentação.</p>
-          </div>
-          <div className="capability">
-            <span>03</span>
-            <strong>Sistemas internos</strong>
-            <p>CRMs, painéis e fluxos que tiram operação de planilhas e conversas espalhadas.</p>
-          </div>
-          <div className="capability">
-            <span>04</span>
-            <strong>Integrações</strong>
-            <p>WhatsApp, e-mail, planilhas, bancos de dados e automações conectando o processo.</p>
-          </div>
+          {[
+            {icon:<PanelsTopLeft aria-hidden="true"/>,title:"Sites que convertem",text:"Landing pages e sites institucionais com identidade forte, velocidade e foco em resultados."},
+            {icon:<Smartphone aria-hidden="true"/>,title:"Apps e produtos",text:"Experiências web e mobile pensadas para ir além da apresentação: produtos para uso real."},
+            {icon:<LayoutDashboard aria-hidden="true"/>,title:"Sistemas internos",text:"CRMs, painéis e rotinas que organizam a operação e devolvem tempo à equipe."},
+            {icon:<Workflow aria-hidden="true"/>,title:"Integrações",text:"Dados, WhatsApp, e-mail e automações trabalhando juntos no mesmo fluxo."}
+          ].map((item,i)=>(
+            <div className="capability" key={item.title}>
+              <span>{String(i+1).padStart(2,"0")}</span>
+              <div className="capability__icon">{item.icon}</div>
+              <strong>{item.title}</strong>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </section>
 
         <section className="projects-intro section-shell" id="projetos">
@@ -166,7 +179,7 @@ export default function App() {
 
                 <div className="feature-list">
                   {project.features.map((feature) => (
-                    <div key={feature}><span>✓</span>{feature}</div>
+                    <div key={feature}><FeatureIcon label={feature}/>{feature}</div>
                   ))}
                 </div>
 
@@ -223,7 +236,7 @@ export default function App() {
 
                   <div className="feature-list feature-list--compact">
                     {project.features.map((feature) => (
-                      <div key={feature}><span>✓</span>{feature}</div>
+                      <div key={feature}><FeatureIcon label={feature}/>{feature}</div>
                     ))}
                   </div>
 
